@@ -22,7 +22,7 @@
         }).addTo(map);
 
     var myIcon = L.icon({
-    iconUrl: 'my-icon.png',
+    iconUrl: 'images/hospital.png',
     iconSize: [38, 95],
     iconAnchor: [22, 94],
     popupAnchor: [-3, -76],
