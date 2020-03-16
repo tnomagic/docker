@@ -21,16 +21,12 @@
         maxZoom: 18,
         }).addTo(map);
 
-    var myIcon = L.icon({
+    var hosIcon = L.icon({
     iconUrl: 'images/hospital.png',
-    iconSize: [38, 95],
-    iconAnchor: [22, 94],
+    iconSize: [32, 32],
     popupAnchor: [-3, -76],
-    shadowUrl: 'my-icon-shadow.png',
-    shadowSize: [68, 95],
-    shadowAnchor: [22, 94]
 });
-L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);
+L.marker([14.2080062,101.2130883], {icon: hosIcon}).addTo(map);
 </script>
 
 </body>
