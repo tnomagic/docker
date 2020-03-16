@@ -1,0 +1,39 @@
+version: '3'
+services: 
+
+    php:
+        build: .
+        #image: php:7.2.28-apache
+        container_name: lemp_php7
+        restart: always
+        volumes: 
+            - ./html/:/var/www/html
+        ports: 
+            - 80:80
+        links:
+            - db:db
+
+    db:
+        image: mariadb:10.2.22
+        container_name: lemp_mariadb
+        restart: always
+        environment: 
+            - MYSQL_ROOT_PASSWORD=tnoname
+            - MYSQL_DATABASE=db_test
+            - MYSQL_USER=sa
+            - MYSQL_PASSWORD=sa
+        ports: 
+            - 3306:3306
+    
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:4.9.4
+        container_name: lemp_phpmyadmin
+        links: 
+            - db:db
+        ports:
+            - 8000:80
+        environment:
+            MYSQL_USER: sa
+            MYSQL_PASSWORD: sa
+            MYSQL_ROOT_PASSWORD: tnoname
+            PMA_HOSTS: db
