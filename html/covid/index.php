@@ -24,16 +24,15 @@
     var hosIcon = L.icon({
     iconUrl: 'images/hospital.png',
     iconSize: [32, 32],
-    popupAnchor: [-3, -76],
+    popupAnchor: [-3, -76]}
 
     var hosIcon = L.icon({
     iconUrl: 'images/hospital.png',
     iconSize: [32, 32],
-    popupAnchor: [-3, -76],
+    popupAnchor: [-3, -76]}
 });
-L.marker([14.2080062,101.2130883], {icon: hosIcon}).addTo(map).bindPopup("โรงพยาบาลนครนายก.");; //รพ นครนายก
-
-L.marker([14.1779573,101.0606298], {icon: hosIcon}).addTo(map).bindPopup("กองร้อยอาสา.");; //กองร้อยอาสา
+L.marker([14.2080062,101.2130883], {icon: hosIcon}).addTo(map); //รพ นครนายก
+L.marker([14.1779573,101.0606298], {icon: hosIcon}).addTo(map); //กองร้อยอาสา
 </script>
 
 </body>
