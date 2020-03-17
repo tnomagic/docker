@@ -26,7 +26,7 @@
     iconSize: [32, 32],
     popupAnchor: [-3, -76],
 });
-L.marker([14.2080062,101.2130883], {icon: hosIcon}).addTo(map);
+L.marker([14.2080000,101.2130000], {icon: hosIcon}).addTo(map);
 </script>
 
 </body>
