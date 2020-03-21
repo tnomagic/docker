@@ -40,6 +40,6 @@ L.marker([14.2523673,101.0661918], {icon: hosIcon}).addTo(map).bindPopup("โร
 L.marker([14.1499467,101.2659577], {icon: hosIcon}).addTo(map).bindPopup("โรงพยาบาลปากพลี<br> 233 ตำบล ปากพลี อำเภอปากพลี นครนายก 26130 <br> โทรศัพท์ <a href='tel:037381832'>037-381832</a> <br> Website <a href='https://www.bannahospital.com/' target='_blank'>www.bannahospital.com</a> <br> <a href='https://goo.gl/maps/8cDkN5quZ3Y4cCvY8' target='_blank'>Google MAP</a> "); //รพ บ้านนา
 L.marker([14.1251332,101.0053268], {icon: hosIcon}).addTo(map).bindPopup("โรงพยาบาลองครักษ์<br> 300 หมู่ 1 ต อำเภอองครักษ์ นครนายก 26120 <br> โทรศัพท์ <a href='tel:037391511'>037-391511</a> <br> Website <a href='https://ongkharakhospital.go.th/' target='_blank'>www.ongkharakhospital.go.th/</a> <br> <a href='https://goo.gl/maps/C6h7s8vQ8fjkDmsE7' target='_blank'>Google MAP</a> "); //รพ องครักษ์
 </script>
-
+test
 </body>
 </html>
