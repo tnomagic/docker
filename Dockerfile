@@ -42,9 +42,3 @@ ENV PATH=$PATH:/root/composer/vendor/bin COMPOSER_ALLOW_SUPERUSER=1
 # After release of Composer 2.x, remove prestissimo, because parallelism already merged into Composer 2.x branch:
 # https://github.com/composer/composer/pull/7904
 RUN composer global require hirak/prestissimo
-
-ENV TIMEZONE Asia/Bangkok
-
-# TimeZone
-RUN cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
-&& echo "${TIMEZONE}" >  /etc/timezone
