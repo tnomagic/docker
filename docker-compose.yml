@@ -29,11 +29,11 @@ services:
         ports: 
             - 3306:3306
 
-    memcached:
-        image: memcached
-        container_name: lemp_memcached
-        ports:
-            - "11211:11211"
+    #memcached:
+    #    image: memcached
+    #    container_name: lemp_memcached
+    #    ports:
+    #       - "11211:11211"
     
     phpmyadmin:
         image: phpmyadmin/phpmyadmin:4.9.4
