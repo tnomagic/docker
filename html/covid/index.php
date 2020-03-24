@@ -33,20 +33,14 @@
     <script>
         var map = L.map('map').setView([14.2036470, 101.2147087], 10);
         mapLink =
-            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-        mapLink =
-            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+            '<a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a>';
+        mapLink2 =
+            '<a href="http://www.noph.go.th" target="_blank">สำนักงานสาธารณสุขจังหวัดนครนายก</a>';
         L.tileLayer(
             'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; ' + mapLink + ' Data Create by Weerayut',
+                attribution: '&copy; ' + mapLink + ' Data by' + mapLink2 + ' Create by Weerayut',
                 maxZoom: 18,
             }).addTo(map);
-
-        //var hosIcon = L.icon({
-        //iconUrl: 'images/hospital.png',
-        //iconSize: [32, 32],
-        //popupAnchor: [0, 0],
-        //});
 
         var LeafIcon = L.Icon.extend({
             options: {
@@ -83,7 +77,7 @@
         L.marker([14.2867392, 101.169127], {
             icon: hosIcon
         }).bindPopup("<h3>โรงพยาบาลโรงเรียนนายร้อยพระจุลจอมเกล้า</h3> <br> เลขที่ 99/6001 ถนนสุวรรณศร ตำบลพรหมณี อำเภอเมือง จังหวัดนครนายก 26001 <br> โทรศัพท์ <a href='tel:037393010'>037393010</a> &nbsp;&nbsp; <a href='tel:037393011'>037393011</a><br>,<a href='tel:037393012'>037393012</a> &nbsp;&nbsp; <a href='tel:037393013'>037393013</a> &nbsp;&nbsp; <a href='tel:037393014'>037393014</a> <br> Website <a href='http://hospital.crma.ac.th/' target='_blank'>hospital.crma.ac.th</a> <br> <a href='https://goo.gl/maps/TCZm8s8AKtBkWe9FA' target='_blank'>Google MAP</a> ").addTo(map); //รพ จปร
-        L.marker([14.1088678,100.9822346], {
+        L.marker([14.1088678, 100.9822346], {
             icon: hosIcon
         }).bindPopup("<h3>มหาวิทยาลัยศรีนครินทรวิโรฒ องครักษ์</h3> <br> เลขที่ 63 หมู่ 7 ถนนรังสิต-นครนายก คลอง 16 ตำบลองครักษ์ อำเภอองครักษ์ จังหวัดนครนายก 26120 <br> โทรศัพท์ <a href='tel:026495000'>026495000</a><br> Website <a href='https://www.swu.ac.th/' target='_blank'>www.swu.ac.th</a> <br> <a href='https://goo.gl/maps/rP361htuFcZULLgj8' target='_blank'>Google MAP</a> ").addTo(map); //รพ มศว
 
@@ -94,7 +88,7 @@
         }).bindPopup("<h3>ตำบลท่าช้าง </h3> ผู้ต้องเฝ้าระวัง 3 ราย ชาย(1) หญิง(2) <br> ครบ 14 วัน ชาย(1) หญิง(2) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map); //ท่าช้าง
         L.marker([14.1457723, 101.1812288], {
             icon: ralertIcon
-        }).bindPopup("<h3>ตำบลดงละคร </h3> ผู้ต้องเฝ้าระวัง 3 ราย หญิง(3) <br> ครบ 14 วัน หญิง(2) <div style='color:green'>ผล: ปลอดภัย</div> <br> ยังไม่ครบ หญิง(1) <div style='color:red'>ครบกำหนด 29 มีนาคม 2563</p> ").addTo(map); //ดงละคร
+        }).bindPopup("<h3>ตำบลดงละคร </h3> ผู้ต้องเฝ้าระวัง 3 ราย หญิง(3) <br> ครบ 14 วัน หญิง(2) <div style='color:green'>ผล: ปลอดภัย</div> <br> ยังไม่ครบ หญิง(1) <div style='color:red'>ครบกำหนด 29 มีนาคม 2563</div> ").addTo(map); //ดงละคร
         L.marker([14.2334022, 101.1609828], {
             icon: galertIcon
         }).bindPopup("<h3>ตำบลพรหมณี </h3> ผู้ต้องเฝ้าระวัง 11 ราย ชาย(3) หญิง(8) <br> ครบ 14 วัน ชาย(3) หญิง(8) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map); //พรหมณี
@@ -115,13 +109,53 @@
         }).bindPopup("<h3>ตำบลเขาพระ </h3> ผู้ต้องเฝ้าระวัง 1 ราย หญิง(1) <br> ครบ 14 วัน หญิง(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map); //เขาพระ
         L.marker([14.2594912, 101.2627213], {
             icon: galertIcon
-        }).bindPopup("<h3>ตำบลสาริกา </h3> ผู้ต้องเฝ้าระวัง 1 ราย หญิง(1) <br> ครบ 14 วัน หญิง(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map); //สาริกา 
+        }).bindPopup("<h3>ตำบลสาริกา </h3> ผู้ต้องเฝ้าระวัง 2 ราย หญิง(2) <br> ครบ 14 วัน หญิง(2) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map); //สาริกา 
         L.marker([14.1848283, 101.2002558], {
             icon: galertIcon
         }).bindPopup("<h3>ตำบลวังกระโจม </h3> ผู้ต้องเฝ้าระวัง 2 ราย ชาย(1) หญิง(1) <br> ครบ 14 วัน ชาย(1) หญิง(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map); //วังกระโจม
         L.marker([14.1550013, 101.1255978], {
             icon: galertIcon
         }).bindPopup("<h3>ตำบลดอนยอ </h3> ผู้ต้องเฝ้าระวัง 1 ราย ชาย(1) <br> ครบ 14 วัน ชาย(1)<div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map); //ดอนยอ
+
+        //อำเภอปากพลี
+        L.marker([14.1758303, 101.2633148], {
+            icon: galertIcon
+        }).bindPopup("<h3>ตำบลเกาะหวาย </h3> ผู้ต้องเฝ้าระวัง 4 ราย ชาย(2) หญิง(2) <br> ครบ 14 วัน ชาย(2) หญิง(2) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map); //เกาะหวาย
+        L.marker([14.2070242, 101.3484633], {
+            icon: galertIcon
+        }).bindPopup("<h3>ตำบลนาหินลาด </h3> ผู้ต้องเฝ้าระวัง 1 ราย หญิง(1) <br> ครบ 14 วัน หญิง(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map); //นาหินลาด
+        L.marker([14.1817722, 101.2996653], {
+            icon: galertIcon
+        }).bindPopup("<h3>ตำบลโครกกรวด </h3> ผู้ต้องเฝ้าระวัง 1 ราย ชาย(1) <br> ครบ 14 วัน ชาย(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map); //โครกกรวด
+        L.marker([14.2003292, 101.3002063], {
+            icon: ralertIcon
+        }).bindPopup("<h3>ตำบลหนองแสง </h3> ผู้ต้องเฝ้าระวัง 3 ราย ชาย(1) หญิง(2) <br> ครบ 14 วัน ชาย(0) หญิง(2) <div style='color:green'>ผล: ปลอดภัย</div> <br> ยังไม่ครบ ชาย(1) <div style='color:red'>ครบกำหนด 28 มีนาคม 2563</div> ").addTo(map); //หนองแสง 
+        L.marker([14.1101032, 101.2278608], {
+            icon: ralertIcon
+        }).bindPopup("<h3>ตำบลท่าเรือ </h3> ผู้ต้องเฝ้าระวัง 1 ราย หญิง(1) <br> ครบ 14 วัน หญิง(0) <div style='color:green'>ผล: ปลอดภัย</div> <br> ยังไม่ครบ หญิง(1)  <div style='color:red'>ครบกำหนด 29 มีนาคม 2563</div> ").addTo(map); //ท่าเรือ
+
+        //อำเภอปากพลี
+        L.marker([14.0339217, 101.1251534], {
+            icon: galertIcon
+        }).bindPopup("<h3>ตำบลบางสมบูรณ์ </h3> ผู้ต้องเฝ้าระวัง 1 ราย หญิง(1) <br> ครบ 14 วัน หญิง(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map);
+        L.marker([14.0288336, 101.0223347], {
+            icon: galertIcon
+        }).bindPopup("<h3>ตำบลศรีษะกระบือ</h3> ผู้ต้องเฝ้าระวัง 2 ราย ชาย(1) หญิง(1) <br>ครบ 14 วัน ชาย(1) หญิง(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map);
+        L.marker([14.1607313, 100.9328188], {
+            icon: galertIcon
+        }).bindPopup("<h3>ตำบลบางปลากด</h3> ผู้ต้องเฝ้าระวัง 1 ราย หญิง(1) <br>ครบ 14 วัน หญิง(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map);
+        L.marker([14.1221814, 100.9943595], {
+            icon: galertIcon
+        }).bindPopup("<h3>ตำบลคลองใหญ่</h3> ผู้ต้องเฝ้าระวัง 2 ราย ชาย(1) หญิง(1) <br>ครบ 14 วัน ชาย(1) หญิง(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map);
+        L.marker([14.2082332, 100.9384823], {
+            icon: galertIcon
+        }).bindPopup("<h3>ตำบลโพธิ์แทน</h3> ผู้ต้องเฝ้าระวัง 1 ราย ชาย(1) <br>ครบ 14 วัน ชาย(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map);
+        L.marker([14.0312716,101.059181], {
+            icon: galertIcon
+        }).bindPopup("<h3>ตำบลบางลูกเสือ</h3> ผู้ต้องเฝ้าระวัง 1 ราย ชาย(1) <br>ครบ 14 วัน ชาย(1) <div style='color:green'>ผล: ปลอดภัย</div> ").addTo(map);
+        L.marker([14.1407244,100.9844025], {
+            icon: ralertIcon
+        }).bindPopup("<h3>ตำบลทรายมูล</h3> ผู้ต้องเฝ้าระวัง 3 ราย ชาย(2) หญิง(1) <br>ครบ 14 วัน ชาย(0) หญิง(0) <div style='color:green'>ผล: ปลอดภัย</div> <div style='color:red'>ครบกำหนด 25 มีนาคม 2563</div> ").addTo(map);
     </script>
 </body>
 
