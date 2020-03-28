@@ -44,14 +44,16 @@ if ($act == "add" && $fco_id == "") {
     $sqlmapadd = "INSERT INTO tb_map SET co_name = '$fco_name',co_lati = '$fco_lati',co_longti = '$fco_longti',co_last = now() ";
     $dbconnect->query($sqlmapadd);
 
-    $textcomplete = "<div class=\"alert alert-success text-center\" role=\"alert\"><span class=\"glyphicon glyphicon glyphicon-ok\" aria-hidden=\"true\"></span> เพิ่มข้อมูลสำเร็จ</div>";
+    $_SESSION['textcomplete'] = "<div class=\"alert alert-success text-center\" role=\"alert\"><span class=\"glyphicon glyphicon glyphicon-ok\" aria-hidden=\"true\"></span> เพิ่มข้อมูลสำเร็จ</div>";
+    header('location:tambon.php');
 }
 #update
 if ($act == "add" && $fco_id != "") {
     $sqlmapup = "UPDATE tb_map SET co_name = '$fco_name',co_lati = '$fco_lati',co_longti = '$fco_longti',co_last = now() WHERE co_id = '$fco_id' ";
     $dbconnect->query($sqlmapup);
 
-    $textcomplete = "<div class=\"alert alert-success text-center\" role=\"alert\"><span class=\"glyphicon glyphicon glyphicon-ok\" aria-hidden=\"true\"></span> แก้ไขข้อมูลสำเร็จ</div>";
+    $_SESSION['textcomplete'] = "<div class=\"alert alert-success text-center\" role=\"alert\"><span class=\"glyphicon glyphicon glyphicon-ok\" aria-hidden=\"true\"></span> แก้ไขข้อมูลสำเร็จ</div>";
+    header('location:tambon.php');
 }
 ?>
 <!DOCTYPE html>
@@ -61,18 +63,13 @@ if ($act == "add" && $fco_id != "") {
     <title><?php echo $page_title; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
 
-    <div class="container-fluid">
-        <p>&nbsp;</p>
-        <div class="row">
-            <div class="col-sm-4">
-                <form action="?act=add" method="post">
+                <form action="form_tambon.php?act=add" method="post">
                     <div class="form-group">
                         <label for="co_name">ตำบล:</label>
                         <input required value="<?php echo $co_name; ?>" type="text" class="form-control" id="fco_name" name="fco_name" placeholder="ตำบล... - กลับจาก...">
@@ -86,13 +83,10 @@ if ($act == "add" && $fco_id != "") {
                         <input required maxlength="15" value="<?php echo $co_longti; ?>" type="text" class="form-control" id="fco_longti" name="fco_longti" placeholder="XX.XXXXXXX" onkeypress="return isNumberKey(event)">
                     </div>
                     <input type="hidden" name="fco_id" id="fco_id" value="<?php echo $co_id; ?>" />
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </form>
                 <?php echo $textcomplete; ?>
-            </div>
-        </div>
 
-    </div>
     <script type="text/javascript">
         function isNumberKey(evt) {
             var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -102,6 +96,11 @@ if ($act == "add" && $fco_id != "") {
             return true;
         }
     </script>
+    <!--Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
 </body>
 
 </html>

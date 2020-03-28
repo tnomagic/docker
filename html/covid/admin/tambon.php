@@ -11,6 +11,7 @@ $da_id = $_GET['da_id'];
 
 #session
 $rec_login_id = $_SESSION['$rec_login_id'];
+$textcomplete = $_SESSION['textcomplete'];
 
 #Check session id if login
 if (empty($rec_login_id)) {
@@ -25,11 +26,10 @@ if ($act == 'logout') {
     exit();
 }
 
-#select
-$sqlhome = "SELECT tbm.co_name, tbd.da_icon,tbd.da_popup,tbd.da_id
-FROM tb_map tbm
-INNER JOIN tb_data tbd ON tbm.co_id = tbd.co_id";
-$res_home = $dbconnect->query($sqlhome);
+#select ตำบล
+$sqltb = "SELECT * FROM tb_map";
+$res_tb = $dbconnect->query($sqltb);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,58 +53,56 @@ $res_home = $dbconnect->query($sqlhome);
             <div class="col">
                 <p><a href="landing.php" class="btn btn-outline-info btn-lg">หน้าหลัก</a> | <a href="tambon.php" class="btn btn-outline-info btn-lg">ตำบล</a></p>
                 <div class="row">
-                    <div class="col"><img src="images/galert.png" width="32px">กลับจากต่างประเทศ เฝ้าระวังครบ 14 วันทั้งหมด<br><img src="images/ralert.png" width="32px">กลับจากต่างประเทศ ยังเฝ้าระวังไม่ครบ 14 วัน</div>
+                    <div class="col"></div>
                     <div class="col" style="text-align: right;"><br><a href="?act=logout"><img src="images/logout.png">Logout</a></div>
                 </div>
-                <p style="text-align: center;"><a rel="modal:open" href="form_data.php" class="btn btn-info btn-lg">เพิ่มข้อมูลประชากร</a></p>
+                <p style="text-align: center;"><a rel="modal:open" href="form_tambon.php" class="btn btn-info btn-lg">เพิ่มตำบล</a></p>
                 <p style="text-align: center;"><?php echo $textcomplete; ?></p>
             </div>
         </div>
         <div class="row">
-            <div class="col"><table id="table_id" class="table table-striped table-bordered display">
+            <div class="col">
+                <table id="table_id" class="table table-striped table-bordered display">
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>ตำบล</th>
-                            <th>สัญลักษณ์</th>
-                            <th>ดูข้อมูล</th>
+                            <th>ละติจูด</th>
+                            <th>ลองจิจูด</th>
+                            <th>อัพเดทล่าสุด</th>
                             <th>แก้ไข</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $i = 1;
-                        while ($rec_home = $res_home->fetch_array()) {
-                            $co_name = $rec_home['co_name'];
-                            $co_icon = $rec_home['da_icon'];
-                            $co_popup = $rec_home['da_popup'];
-                            $co_da_id = $rec_home['da_id'];
+                        while ($rec_tb = $res_tb->fetch_array()) {
+                            $co_id = $rec_tb['co_id'];
+                            $co_name = $rec_tb['co_name'];
+                            $co_lati = $rec_tb['co_lati'];
+                            $co_longti = $rec_tb['co_longti'];
+                            $co_last = $rec_tb['co_last'];
 
                         ?>
                             <tr>
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo $co_name; ?></td>
-                                <td style="text-align: center;"><?php
-                                                                if ($co_icon == "ralertIcon") {
-                                                                    echo "<img src=\"images/ralert.png\" width=\"32px\">";
-                                                                } elseif ($co_icon == "galertIcon") {
-                                                                    echo "<img src=\"images/galert.png\" width=\"32px\">";
-                                                                } elseif ($co_icon == "yalertIcon") {
-                                                                    echo "<img src=\"images/yalert.png\" width=\"32px\">";
-                                                                } ?></td>
-                                <td style="text-align: center;"><a rel="modal:open" href="show_data.php?da_id=<?php echo $co_da_id; ?>" class="btn btn-info btn-sm">ดูข้อมูล</a></td>
-                                <td style="text-align: center;"><a rel="modal:open" href="from_data.php?da_id=<?php echo $co_da_id; ?>" class="btn btn-info btn-sm">แก้ไช</a></td>
+                                <td style="text-align: center;"><?php echo $co_lati; ?></td>
+                                <td style="text-align: center;"><?php echo $co_longti; ?></td>
+                                <td style="text-align: center;"><?php echo $co_last; ?></td>
+                                <td style="text-align: center;"><a rel="modal:open" href="form_tambon.php?co_id=<?php echo $co_id; ?>" class="btn btn-primary btn-sm">แก้ไข</a></td>
                             </tr>
                         <?php $i++;
                         } ?>
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div>
     <div class="row">
-            <div class="col">&nbsp;</div>
-        </div>
+        <div class="col">&nbsp;</div>
+    </div>
     <!--Bootstrap 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     -->

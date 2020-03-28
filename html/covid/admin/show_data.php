@@ -1,11 +1,11 @@
 <?php
-if (isset($_POST["co_da_id"])) {
+if (isset($_GET["da_id"])) {
     $output = '';
     require_once('config.php');
-    $query = "SELECT tbm.co_name, tbd.da_icon,tbd.da_popup,tbd.data_id,tbd.da_last
+    $query = "SELECT tbm.co_name, tbd.da_icon,tbd.da_popup,tbd.da_id,tbd.da_last
       FROM tb_map tbm
       INNER JOIN tb_data tbd ON tbm.co_id = tbd.co_id 
-      WHERE tbd.data_id = '" . $_POST["co_da_id"] . "'";
+      WHERE tbd.da_id = '" . $_GET["da_id"] . "'";
     $result = $dbconnect->query($query);
     $output .= '  
       <div class="table-responsive">  
@@ -41,3 +41,5 @@ if (isset($_POST["co_da_id"])) {
     $output .= "</table></div>";
     echo $output;
 }
+?>
+<div style="text-align: center;"><a href="#" rel="modal:close" class="btn btn-danger btn-xs">ปิดหน้าต่าง</a></div>

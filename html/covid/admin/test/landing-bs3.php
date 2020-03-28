@@ -7,7 +7,7 @@ require_once('config.php');
 
 #GET POST FROM
 $act = $_GET['act'];
-$data_id = $_GET['data_id'];
+$da_id = $_GET['da_id'];
 
 #session
 $rec_login_id = $_SESSION['$rec_login_id'];
@@ -26,7 +26,7 @@ if ($act == 'logout') {
 }
 
 #select ประชากร
-$sqlhome = "SELECT tbm.co_name, tbd.da_icon,tbd.da_popup,tbd.data_id
+$sqlhome = "SELECT tbm.co_name, tbd.da_icon,tbd.da_popup,tbd.da_id
 FROM tb_map tbm
 INNER JOIN tb_data tbd ON tbm.co_id = tbd.co_id";
 $res_home = $dbconnect->query($sqlhome);
@@ -83,7 +83,7 @@ $res_tb = $dbconnect->query($sqltb);
                                     $co_name = $rec_home['co_name'];
                                     $co_icon = $rec_home['da_icon'];
                                     $co_popup = $rec_home['da_popup'];
-                                    $co_data_id = $rec_home['data_id'];
+                                    $co_da_id = $rec_home['da_id'];
 
                                 ?>
                                     <tr>
@@ -97,8 +97,8 @@ $res_tb = $dbconnect->query($sqltb);
                                                                         } elseif ($co_icon == "yalertIcon") {
                                                                             echo "<img src=\"images/yalert.png\" width=\"32px\">";
                                                                         } ?></td>
-                                        <td style="text-align: center;"><input type="button" name="view" value="view" id="<?php echo $co_data_id; ?>" class="btn btn-info btn-xs view_data" /></td>
-                                        <td style="text-align: center;"><a href="form_data.php?data_id=<?php echo $co_data_id; ?>" class="btn btn-info btn-xs" role="button">แก้ไข</a></td>
+                                        <td style="text-align: center;"><input type="button" name="view" value="view" id="<?php echo $co_da_id; ?>" class="btn btn-info btn-xs view_data" /></td>
+                                        <td style="text-align: center;"><a href="form_data.php?da_id=<?php echo $co_da_id; ?>" class="btn btn-info btn-xs" role="button">แก้ไข</a></td>
                                     </tr>
                                 <?php $i1++;
                                 } ?>
@@ -220,12 +220,12 @@ $res_tb = $dbconnect->query($sqltb);
       //view data
     $(document).ready(function() {
         $('.view_data').click(function() {
-            var co_data_id = $(this).attr("id");
+            var co_da_id = $(this).attr("id");
             $.ajax({
                 url: "show_data.php",
                 method: "post",
                 data: {
-                    co_data_id: co_data_id
+                    co_da_id: co_da_id
                 },
                 success: function(data) {
                     $('#co_data_id_detail').html(data);

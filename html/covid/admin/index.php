@@ -45,12 +45,14 @@ if ($act == 'dlogin') {
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
         <div class="row">
-            <div class="col-sm">
-
+            <div class="col">
+            
             </div>
-            <div class="col-sm">
+            <div class="col">
                 <form method="post" action="?act=dlogin">
                     <div class="form-group">
                         <label for="duser">Username</label>
